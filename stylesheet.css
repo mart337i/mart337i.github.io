@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Share Tech Mono", monospace;
+}
+
+header {
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 10%;
+  font-family: "Share Tech Mono", monospace;
+  background-color:  rgba(179, 207, 233, 0.705);
+}
+/* Nav_bar End */
+#video2 {
+  position:fixed;
+  z-index: -1;
+  background-color: rgba(179, 207, 233, 0.705);
+    opacity: 100%;
+}
+
+
+
+/* This has been changed */
+#videoMessage2 {
+  position: absolute;
+  margin-top: 6%;
+  padding-left: 31%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  padding: 10% 0;
+  color: rgb(2, 2, 2);
+  white-space: nowrap;
+  font-family: "Share Tech Mono", monospace;
+}
+
+h2 {
+  padding: 0.5% 0%;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+/* Nav_bar START*/
+li, a, button {
+  color: whitesmoke;
+  text-decoration: none;
+  
+}
+.Nav_links {
+  list-style: none;
+}
+
+.Nav_links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.Nav_links li a {
+  transition: all 0.3s ease 0s;
+}
+
+.Nav_links li a:hover {
+  color: whitesmoke;
+}
+
+.CTA {
+  font-size: inherit;
+
+}
+
+button {
+  padding: 9px 25px;
+  border: none;
+  border-radius: 0px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  color:inherit;
+  background-color:  rgba(179, 207, 233, 0.205);
+
+}
+
+button:hover {
+  color: whitesmoke;
+}
+
+#Nav_bar {
+  position: absolute;
+  height: 50%;
+  width: 50%;
+}
+
+/* Nav_bar End */
+/*typewriter animation*/
+h3 {
+ 
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+  color: rgb(80, 79, 79);
+  width: 24em;
+  margin: 0 auto;
+  margin-top: -9%;
+}
+
+/* typewriter Animation */
+h3 {
+  animation: animated-text 5s steps(37, end) 1s 1 normal both,
+    animated-cursor 650ms steps(37, end) infinite;
+}
+
+/* text animation */
+@keyframes animated-text {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 380px;
+  }
+}
+
+/* typewriter Animation End*/
+.list{
+  display: inline-flex;
+  padding-left: 43%;
+  padding-top: 2%;
+  list-style: none;
+  font-size: 45px;
+  
+
+}
+.list li {
+  padding: 0px 20px;
+}
+.fa-linkedin{
+  color: blue;
+  
+ 
+}
+
+.fa-github{
+  color: rgb(61, 59, 59);
+  
+}
+
+.fa-rss{
+  color: rgb(15, 150, 184);
+
+}
+
+@media (min-width: 300px) {
+    #videoBG {
+        display: none;
+        
+    }
+    .list{
+      padding-left: 28%;
+  
+    }
+    *{
+      font-size: 18px;
+    }
+    h3{
+      font-size: 10px;
+
+    }
+    @keyframes animated-text{
+      from {
+        width: 0;
+      }
+    
+      to {
+        width: 290px;
+      }
+      
+    }
+    .main{
+      padding-top: 40%;
+    }
+}
+@media (min-width: 1920px) {
+  #videoBG {
+      display: none;
+      
+  }
+  .list{
+    padding-left: 44.3%;
+
+  }
+  *{
+    font-size: 28px;
+  }
+  h3{
+    font-size: 14px;
+
+  }
+  @keyframes animated-text{
+    from {
+      width: 0;
+    }
+  
+    to {
+      width: 410px;
+    }
+    
+  }
+  .main{
+    padding-top: 4%;
+  }
+}
+
+
+@media (min-width: 3840px){
+  #videoBG{
+    width: 100%;
+    height: auto;
+  }
+  .list{
+      padding-left: 46%;
+  
+    }
+    *{
+      font-size: 68px;
+    }
+    h3{
+      font-size: 38px;
+
+    }
+    @keyframes animated-text{
+      from {
+        width: 0;
+      }
+    
+      to {
+        width: 1100px;
+      }
+      
+    }
+    .main{
+      padding-top: 3%;
+    }
+}
+
+
+
+@media (min-aspect-ratio: 16/9) {
+    #video2 {
+        width:100%;
+        height: auto;
+    }
+}
+    @media (max-aspect-ratio: 16/9) {
+    #videoBG {
+        width:auto;
+        height: 100%;
+    }
+  }
+
