@@ -41,18 +41,45 @@ const commands = {
 
 
           resualt.forEach(element => {
-          //this.echo(`${TextColor(element.name, "lime") + " \n     -" + element.html_url} \n`); // prints left side
+              var tempstring = element.name.split("-")
+              var type = tempstring[1]
+              console.log(type)
 
-          var temp =  document.getElementById("Projects").content;
-          var tempCopy = document.importNode(temp,true);
+              var temp =  document.getElementById("Projects").content;
+              var tempCopy = document.importNode(temp,true);
 
-          tempCopy.querySelector(".ProjectName").textContent = element.name;
-          tempCopy.querySelector(".Link").textContent = element.html_url;
+              switch(type) {
+                  case "API":
+                      tempCopy.querySelector(".TypeOfProject").src = "img/api_4516824.png"
+                      break;
+                  case "Video":
+                      tempCopy.querySelector(".TypeOfProject").src = "img/television-video.svg"
+                      break;
+                  case "GUI":
+                      tempCopy.querySelector(".TypeOfProject").src = "img/website-design.svg"
+                      break;
+                  case "Report":
+                      tempCopy.querySelector(".TypeOfProject").src = "img/computer-report.svg"
+                      break;
+                  case "NN":
+                      tempCopy.querySelector(".TypeOfProject").src = "img/NN.png"
+                      break;
+                  case "Bot":
+                      tempCopy.querySelector(".TypeOfProject").src = "img/rpa-robotic-process-automation.svg"
+                      break;
+                  case "math":
+                      tempCopy.querySelector(".TypeOfProject").src = "img/calculating.svg"
+                      break;
+
+                  default:
+                  tempCopy.querySelector(".TypeOfProject").src = "https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/code_128.png?raw=true"
+              }
+
+              tempCopy.querySelector(".ProjectName").textContent = element.name;
+              tempCopy.querySelector(".Link").textContent = element.html_url;
 
 
-          document.getElementById("terminalOutput").appendChild(tempCopy);
-
-
+              document.getElementById("terminalOutput").appendChild(tempCopy);
         });
       },
     
