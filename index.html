@@ -1,41 +1,84 @@
 <!DOCTYPE html>
-<html lang="dk">
-<html>
+<html lang="en">
+    <link rel="stylesheet" href="Style.css">
 
-<head>
-  <meta name charset="UFT utf-8">
-  <meta http-equiv="x-ud compatible" content="ei=edge">
-  <meta name="viewport" content="width=device-width, user-scalable=no">
-  <link rel="stylesheet" href="stylesheet.css">
-  <link rel="icon" href="billeder/favicon/favicon.ico">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <title>Martin Egeskov</title>
-</head>
+    <head>
+        <title>Martin Egeskov</title>
+
+        <meta name="description" content="Egeskov" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link href="jquery.terminal.min.css" rel="stylesheet"/>
 
 
+        <script
+			  src="https://code.jquery.com/jquery-3.6.0.js"
+			  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+			  crossorigin="anonymous"></script>
 
-<body>
-    <div class="styling">
-      <div id="videoDiv2">
-          <video id="video2" preload="" autoplay="" muted="" playsinline="" loop="">
-              <source src="lightning.mp4" type="video/mp4">
-              <source src="lightning.mp4" type="video/mp4">
-            </video> 
-          </div>
-        </div>
-      </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/2.16.0/js/jquery.terminal.min.js"></script>
+        
 
-      <div class = "main">
-          <h1>Martin Egeskov. <br>Studere til Datatekniker, </br></h1>
-              <h3>med speciale i programering! </h3>
-            <div class = socials >
-              <ul class = "list">
-                <li><a href = "https://github.com/mart337i"class = "fa fa-github"></a></li>
-                <li><a href = "https://pms.praktikpladsen.dk/elev-index"class = "fa fa-rss"></a></li>
-                <li><a href = "https://www.linkedin.com/in/martin-egeskov-olsen-6612b81b7/"class = "fa fa-linkedin"></a></li>
-              </ul> 
+    </head>
+
+        <body>
+        <div class="row" id="splitRow">
+                <div class="col-sm-6" id="TerminalInput" >
+                    <script src="scripts.js"></script>
+                </div>
+
+                <div class="col-sm-6" id="RightsideOfScreen">
+                    <div id="terminalOutput">
+                        <div>
+
+                        </div>
+                    </div>
+                    <div class = socials >
+                        <ul class = "list">
+                            <li><a href="https://github.com/mart337i" class = "fa fa-github fa-2x"></a></li>
+                            <li><a href="https://pms.praktikpladsen.dk/elev-index" class = "fa fa-rss fa-2x"></a></li>
+                            <li><a href="https://www.linkedin.com/in/martin-egeskov-olsen-6612b81b7/" class = "fa fa-linkedin fa-2x"></a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-      </div>
-</body>
 
+
+            <template id="about" >
+                <div class="InnerHtmlAbout" style="color: lime">
+                    <!-- api call from github-->
+                </div>
+            </template>
+
+            <template id="Projects">
+                <div class="Container">
+                    <div class="card">
+                        <div class="face face1">
+                            <div class="content">
+                                <img src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/code_128.png?raw=true" alt="">
+                                <h3 class="ProjectName" style="color: whitesmoke;"></h3>
+                            </div>
+                        </div>
+                        <div class="face face2">
+                            <div class="content">
+                                <p>project Link: <a class="Link" style="border: none;"></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </body>
 </html>
+
+<!-- Documentation for the Framwork
+    https://github.com/jcubic/jquery.terminal 
+     https://github.com/jcubic/jquery.terminal/wiki/Getting-Started
+     https://terminal.jcubic.pl/examples.php#json_rpc_demo
+
+-->
+
+
+
+
