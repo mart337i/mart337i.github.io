@@ -15,10 +15,6 @@ const commands = {
           }
       },
     
-      repo: function () {
-        this.echo(UserInputCommand.repo);
-      },
-    
       about: async function () {
 
           const url ="https://raw.githubusercontent.com/mart337i/mart337i/main/README.md";
@@ -60,9 +56,7 @@ const commands = {
         });
       },
     
-      skills: function () {
-        this.echo(UserInputCommand.skills);
-      },
+
     
       contact: function () {
         this.echo(UserInputCommand.contact);
@@ -77,8 +71,6 @@ const commands = {
     }
 
 const UserInputCommand = {
-  repo: "https://github.com/mart337i",
-  skills:"WIP",
   contact:"WIP",
   credits:"WIP",
 }
@@ -86,10 +78,8 @@ const UserInputCommand = {
 const commandDescription = {
 
   help: "Lists all commands",
-  repo: "Serve's github link",
   about:`A bit about me :) `,
   projects:"All my projects",
-  skills:"WIP",
   contact:"WIP",
   credits:"WIP",
   cls:"Reload document"
