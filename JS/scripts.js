@@ -103,6 +103,12 @@ const commands = {
 
       contact: function () {
 
+          document.getElementById("terminalOutput").innerHTML = "";
+
+          var temp =  document.getElementById("Contact").content;
+          var tempCopy = document.importNode(temp,true);
+
+          document.getElementById("terminalOutput").appendChild(tempCopy)
       },
     
       credits: function () {
