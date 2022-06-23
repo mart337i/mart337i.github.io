@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "name": "PortfolioApp",
+  "short_name": "HackerApp",
+  "start_url": "index.html",
+  "display": "standalone",
+  "description": "A readable Hacker News app."
+}
