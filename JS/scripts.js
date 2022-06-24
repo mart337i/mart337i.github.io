@@ -1,4 +1,4 @@
-const welcomeMessage = "Welcome to my site fellow humans and bots.\nType help to view a list of available commands.\n";
+const welcomeMessage = `Welcome to my site fellow humans and bots.\nType "help" to view a list of available commands.\n`;
 
 function TextColor(message,color,background ) {
   return `[[g;${color};${background}]` + message + "]";
@@ -112,7 +112,12 @@ const commands = {
       },
     
       credits: function () {
+          document.getElementById("terminalOutput").innerHTML = "";
 
+          var temp =  document.getElementById("Credits").content;
+          var tempCopy = document.importNode(temp,true);
+
+          document.getElementById("terminalOutput").appendChild(tempCopy)
       },
       cls: function(){
         window.location.reload();
