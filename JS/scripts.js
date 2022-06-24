@@ -174,7 +174,9 @@ function fnBrowserDetect(){
 //and for special constructs called tagged templates.
 
 
-
+//TODO
+// Add Email system for "contact form"
+//
 
 
 
