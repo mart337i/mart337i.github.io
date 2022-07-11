@@ -12,6 +12,9 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link href="CSS/jquery.terminal.min.css" rel="stylesheet"/>
 
+        <link rel="icon" type="image/x-icon" href="img/favicon.ico"/>
+        <link rel="manifest" href="manifest.json">
+
 
         <script
 			  src="https://code.jquery.com/jquery-3.6.0.js"
@@ -23,7 +26,7 @@
 
     </head>
 
-        <body>
+    <body>
         <div class="row" id="splitRow">
                 <div class="col-sm-4" id="TerminalInput" >
                     <script src="JS/scripts.js"></script>
@@ -43,10 +46,11 @@
                 </div>
             </div>
 
-
             <template id="about" >
-                <div class="InnerHtmlAbout" style="color: lime; margin-left: 30%; margin-right: 30%">
-                    <!-- api call from github-->
+                <div class="Profile">
+                    <div class="InnerHtmlAbout" >
+                        <!-- api call from github-->
+                    </div>
                 </div>
             </template>
 
@@ -61,20 +65,64 @@
                         </div>
                         <div class="face face2">
                             <div class="content">
-                                <p>project Link: <a class="Link" style="border: none;"></a></p>
+                                <p class="description"></p>
+                                <p>project Link:
+                                    <a  class="Link" href="" style="border: none;">Repo Link</a></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </template>
-        </body>
+
+        <template id="Contact">
+            <div class="Profile">
+                <h2><strong>Contact</strong></h2>
+                <form>
+                    <input name="name" type="text" class="feedback-input" placeholder="Name" />
+                    <input name="email" type="text" class="feedback-input" placeholder="Email" />
+                    <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
+                    <input type="submit" value="SUBMIT"/>
+                </form>
+            </div>
+        </template>
+
+        <template id="Credits">
+            <div class="CreditsStyle">
+                <div class="row">
+                    <div class="center">
+                        <h2><strong>Credits</strong></h2>
+                    </div>
+                    <div style="margin-right: 10%; margin-left: 10%; text-align: center; margin-bottom: 5%">
+                        <h4>Big thanks to the developers that made this project posible.</h4>
+                        <h4>This Project was made using the following tools.</h4>
+                        <h4>And a big thanks to the creates of the icons and favicon</h4>
+                    </div>
+                    <div class="col-sm-4">
+                        <ul>
+                            <li><span><strong>Bootstrap</strong></span></li>
+                            <li><span><strong>font-awesome</strong></span></li>
+                            <li><span><strong>jquery</strong></span></li>
+                            <li><span><strong>jquery.terminal</strong></span></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-8">
+                        <ul style="text-align: right">
+                            <li><span><a href="https://getbootstrap.com/">Link</a></span></li>
+                            <li><span><a href="https://fontawesome.com/">Link</a></span></li>
+                            <li><span><a href="https://jquery.com/">Link</a></span></li>
+                            <li><span><a href="https://terminal.jcubic.pl/">Link</a></span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </body>
 </html>
 
 <!-- Documentation for the Framwork
     https://github.com/jcubic/jquery.terminal 
      https://github.com/jcubic/jquery.terminal/wiki/Getting-Started
      https://terminal.jcubic.pl/examples.php#json_rpc_demo
-
 -->
 
 

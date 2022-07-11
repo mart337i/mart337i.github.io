@@ -1,7 +1,17 @@
-const welcomeMessage = "Welcome to my site fellow humans and bots.\nType help to view a list of available commands.\n";
+const welcomeMessage = `Welcome to my site fellow humans and bots.\nType "help" to view a list of available commands.\n`;
 
 function TextColor(message,color,background ) {
   return `[[g;${color};${background}]` + message + "]";
+}
+
+async function getReadMe(Repo){ //use for getting github readme's [WIP]
+
+    const url = `https://raw.githubusercontent.com/mart337i/${Repo}/main/README.md`;
+    const resp =  await fetch(url);
+    const resualt = await resp.text();
+
+    return resualt;
+
 }
 
 const commands = {
@@ -17,9 +27,7 @@ const commands = {
     
       about: async function () {
 
-          const url ="https://raw.githubusercontent.com/mart337i/mart337i/main/README.md";
-          const resp =  await fetch(url);
-          const resualt = await resp.text();
+          var resualt = await getReadMe("mart337i");
 
           document.getElementById("terminalOutput").innerHTML = "";
 
@@ -37,74 +45,89 @@ const commands = {
         const resp =  await fetch(url);
         const resualt = await resp.json();
 
-          document.getElementById("terminalOutput").innerHTML = "";
+        document.getElementById("terminalOutput").innerHTML = "";
 
 
           resualt.forEach(element => {
               var tempstring = element.name.split("-")
               var type = tempstring[1]
-              console.log(type)
+              var name = tempstring[2]
+
 
               var temp =  document.getElementById("Projects").content;
               var tempCopy = document.importNode(temp,true);
 
               switch(type) {
                   case "API":
-                      tempCopy.querySelector(".TypeOfProject").src = "img/api_4516824.png"
+                      tempCopy.querySelector(".TypeOfProject").src = "img/API.png"
                       break;
                   case "Video":
-                      tempCopy.querySelector(".TypeOfProject").src = "img/television-video.svg"
+                      tempCopy.querySelector(".TypeOfProject").src = "img/Record.svg"
                       break;
                   case "GUI":
-                      tempCopy.querySelector(".TypeOfProject").src = "img/website-design.svg"
+                      tempCopy.querySelector(".TypeOfProject").src = "img/design.svg"
                       break;
                   case "Report":
-                      tempCopy.querySelector(".TypeOfProject").src = "img/computer-report.svg"
+                      tempCopy.querySelector(".TypeOfProject").src = "img/Report.svg"
                       break;
                   case "NN":
-                      tempCopy.querySelector(".TypeOfProject").src = "img/NN.png"
+                      tempCopy.querySelector(".TypeOfProject").src = "img/NN.svg"
                       break;
                   case "Bot":
-                      tempCopy.querySelector(".TypeOfProject").src = "img/rpa-robotic-process-automation.svg"
+                      tempCopy.querySelector(".TypeOfProject").src = "img/Robot.svg"
                       break;
-                  case "math":
-                      tempCopy.querySelector(".TypeOfProject").src = "img/calculating.svg"
+                  case "Math":
+                      tempCopy.querySelector(".TypeOfProject").src = "img/Calulator.svg"
                       break;
+                  case "Practise":
+                      tempCopy.querySelector(".TypeOfProject").src = "img/Learn.svg"
+                      break;
+
 
                   default:
-                  tempCopy.querySelector(".TypeOfProject").src = "https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/code_128.png?raw=true"
+                  tempCopy.querySelector(".TypeOfProject").src = "img/Default.svg"
               }
 
-              tempCopy.querySelector(".ProjectName").textContent = element.name;
-              tempCopy.querySelector(".Link").textContent = element.html_url;
+              if (element.name == "mart337i.github.io"){
+                  tempCopy.querySelector(".TypeOfProject").src = "img/Terminal.svg"
+                  tempCopy.querySelector(".ProjectName").textContent = "This Website: \r\n" + element.name;
 
+              }else{
+                  tempCopy.querySelector(".ProjectName").textContent = name;
+              }
 
+              tempCopy.querySelector(".Link").href = element.html_url;
               document.getElementById("terminalOutput").appendChild(tempCopy);
         });
       },
-    
 
-    
       contact: function () {
-        this.echo(UserInputCommand.contact);
+
+          document.getElementById("terminalOutput").innerHTML = "";
+
+          var temp =  document.getElementById("Contact").content;
+          var tempCopy = document.importNode(temp,true);
+
+          document.getElementById("terminalOutput").appendChild(tempCopy)
       },
     
       credits: function () {
-        this.echo(UserInputCommand.credits);
+          document.getElementById("terminalOutput").innerHTML = "";
+
+          var temp =  document.getElementById("Credits").content;
+          var tempCopy = document.importNode(temp,true);
+
+          document.getElementById("terminalOutput").appendChild(tempCopy)
       },
       cls: function(){
         window.location.reload();
       } 
     }
 
-const UserInputCommand = {
-  contact:"WIP",
-  credits:"WIP",
-}
 
 const commandDescription = {
 
-  help: "Lists all commands",
+  help: `help: This command is used to show all commands.`,
   about:`A bit about me :) `,
   projects:"All my projects",
   contact:"WIP",
@@ -128,7 +151,7 @@ function fnBrowserDetect(){
     } else if(userAgent.match(/edg/i)){
       browserName = "edge";
     }else{
-      browserName="";
+      browserName="unknown";
     }
   
    return browserName;       
@@ -140,7 +163,6 @@ function fnBrowserDetect(){
 
     onInit: function () {
         this.echo(welcomeMessage);
-
     },
 
 });
@@ -152,7 +174,9 @@ function fnBrowserDetect(){
 //and for special constructs called tagged templates.
 
 
-
+//TODO
+// Add Email system for "contact form"
+//
 
 
 
