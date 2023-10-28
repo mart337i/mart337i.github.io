@@ -41,63 +41,45 @@ const commands = {
       },
     
       projects: async function () {
-        const url ="https://api.github.com/users/mart337i/repos";
-        const resp =  await fetch(url);
-        const resualt = await resp.json();
+        const url = "https://api.github.com/users/mart337i/repos";
+        const response = await fetch(url);
+        const result = await response.json();
 
-        document.getElementById("terminalOutput").innerHTML = "";
+        clearTerminalOutput();
 
+        result.forEach(element => {
+            if (!element.name){
+              continue;
+            }
 
-          resualt.forEach(element => {
-              var tempstring = element.name.split("-")
-              var type = tempstring[1]
-              var name = tempstring[2]
+            const [_, type, name] = element.name.split("-");
 
+            const projectTemplate = document.getElementById("Projects").content;
+            const projectNode = document.importNode(projectTemplate, true);
 
-              var temp =  document.getElementById("Projects").content;
-              var tempCopy = document.importNode(temp,true);
+            const imageMap = {
+                "API": "img/API.png",
+                "Video": "img/Record.svg",
+                "GUI": "img/design.svg",
+                "Report": "img/Report.svg",
+                "NN": "img/NN.svg",
+                "Bot": "img/Robot.svg",
+                "Math": "img/Calulator.svg",
+                "Practise": "img/Learn.svg"
+            };
 
-              switch(type) {
-                  case "API":
-                      tempCopy.querySelector(".TypeOfProject").src = "img/API.png"
-                      break;
-                  case "Video":
-                      tempCopy.querySelector(".TypeOfProject").src = "img/Record.svg"
-                      break;
-                  case "GUI":
-                      tempCopy.querySelector(".TypeOfProject").src = "img/design.svg"
-                      break;
-                  case "Report":
-                      tempCopy.querySelector(".TypeOfProject").src = "img/Report.svg"
-                      break;
-                  case "NN":
-                      tempCopy.querySelector(".TypeOfProject").src = "img/NN.svg"
-                      break;
-                  case "Bot":
-                      tempCopy.querySelector(".TypeOfProject").src = "img/Robot.svg"
-                      break;
-                  case "Math":
-                      tempCopy.querySelector(".TypeOfProject").src = "img/Calulator.svg"
-                      break;
-                  case "Practise":
-                      tempCopy.querySelector(".TypeOfProject").src = "img/Learn.svg"
-                      break;
+            const imageSrc = imageMap[type] || "img/Default.svg";
+            projectNode.querySelector(".TypeOfProject").src = imageSrc;
 
+            if (element.name === "mart337i.github.io") {
+                projectNode.querySelector(".TypeOfProject").src = "img/Terminal.svg";
+                projectNode.querySelector(".ProjectName").textContent = "This Website: \r\n" + element.name;
+            } else {
+                projectNode.querySelector(".ProjectName").textContent = name;
+            }
 
-                  default:
-                  tempCopy.querySelector(".TypeOfProject").src = "img/Default.svg"
-              }
-
-              if (element.name == "mart337i.github.io"){
-                  tempCopy.querySelector(".TypeOfProject").src = "img/Terminal.svg"
-                  tempCopy.querySelector(".ProjectName").textContent = "This Website: \r\n" + element.name;
-
-              }else{
-                  tempCopy.querySelector(".ProjectName").textContent = name;
-              }
-
-              tempCopy.querySelector(".Link").href = element.html_url;
-              document.getElementById("terminalOutput").appendChild(tempCopy);
+            projectNode.querySelector(".Link").href = element.html_url;
+            document.getElementById("terminalOutput").appendChild(projectNode);
         });
       },
 
@@ -119,10 +101,11 @@ const commands = {
 
           document.getElementById("terminalOutput").appendChild(tempCopy)
       },
-      cls: function(){
+      clear : function(){
         window.location.reload();
       } 
     }
+  
 
 
 const commandDescription = {
@@ -130,9 +113,11 @@ const commandDescription = {
   help: `help: This command is used to show all commands.`,
   about:`A bit about me :) `,
   projects:"All my projects",
-  contact:"WIP",
-  credits:"WIP",
-  cls:"Reload document"
+  clear:"Reload document"
+}
+
+function clearTerminalOutput() {
+  document.getElementById("terminalOutput").innerHTML = "";
 }
 
 function fnBrowserDetect(){
